@@ -223,8 +223,22 @@
       event.preventDefault();
 
       // Form validation (a function that varifies is all questions have been answered)
-    
+      var questionsAnswered = {
+        question1: $("#q1").val().trim(),
+        question2: $("#q2").val().trim(),
+        question3: $("#q3").val().trim(),
+        question4: $("#q4").val().trim(),
+        question5: $("#q5").val().trim(),
+        question6: $("#q6").val().trim(),
+        question7: $("#q7").val().trim(),
+        question8: $("#q8").val().trim(),
+        question9: $("#q9").val().trim(),
+        question10: $("#q10").val().trim()
+      };
 
+      console.log(questionsAnswered);
+
+      
       // If all required fields are filled
       if (currentScores()) {
         // Create an object for the user"s data
@@ -245,7 +259,9 @@
         $.post("/api/friends", userData, function(data) {
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-         
+         $.ajax({ url: "/api/friends", method: "GET"})
+         .then(function(friendsData){
+         })
 
           // Show the modal with the best match
          
